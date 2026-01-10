@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Your Site Name",
+  name: "Finaro",
   description:
-    "A modern, accessible landing page template built with Next.js, Tailwind CSS, and TypeScript.",
-  url: "https://example.com",
+    "The modern financial platform that grows with you. From personal accounts to enterprise solutions, manage your money with confidence.",
+  url: "https://finaro.com",
   ogImage: "/og-image.png",
-  creator: "@yourhandle",
+  creator: "@finaro",
   authors: [
     {
-      name: "Your Name",
-      url: "https://example.com",
+      name: "Finaro",
+      url: "https://finaro.com",
     },
   ],
   keywords: [
-    "landing page",
-    "template",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "TypeScript",
+    "banking",
+    "finance",
+    "fintech",
+    "payments",
+    "business banking",
+    "money transfer",
+    "financial platform",
+    "modern banking",
   ],
 } as const;
 
