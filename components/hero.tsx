@@ -274,7 +274,7 @@ export function Hero(): ReactNode {
               transition={{ duration: 0.8, delay: 0.5, ease }}
               className="text-4xl sm:text-5xl md:text-6xl font-medium font-serif text-white text-left lg:text-center leading-tighter tracking-tight max-w-3xl"
             >
-              Spend, save, and invest with one simply powerful app
+              Spend, save, & invest with<br/> one powerful app
             </motion.h1>
 
             <motion.p
