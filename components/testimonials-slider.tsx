@@ -85,6 +85,8 @@ function LinkedInIcon() {
 export function TestimonialsSlider(): ReactNode {
   const visibleCount = useVisibleCount();
   const itemCount = testimonials.length;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const extendedTestimonials = [
     ...testimonials.slice(-CLONE_COUNT),
@@ -99,13 +101,26 @@ export function TestimonialsSlider(): ReactNode {
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const prevVisibleCountRef = useRef(visibleCount);
 
+  useEffect(() => {
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   useLayoutEffect(() => {
     if (prevVisibleCountRef.current !== visibleCount) {
       prevVisibleCountRef.current = visibleCount;
-      setEnableTransition(false);
-      setCurrentIndex(CLONE_COUNT);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setEnableTransition(true));
+      queueMicrotask(() => {
+        setEnableTransition(false);
+        setCurrentIndex(CLONE_COUNT);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => setEnableTransition(true));
+        });
       });
     }
   }, [visibleCount]);
@@ -176,10 +191,13 @@ export function TestimonialsSlider(): ReactNode {
   }, [isPaused]);
 
   const totalGapPx = GAP_PX * (visibleCount - 1);
-  const cardWidthCalc = `(100% - ${totalGapPx}px) / ${visibleCount}`;
-  const cardWidth = `calc(${cardWidthCalc})`;
+  const cardWidthPx = containerWidth > 0 ? (containerWidth - totalGapPx) / visibleCount : 0;
+  const cardWidth = cardWidthPx > 0 ? `${cardWidthPx}px` : `calc((100% - ${totalGapPx}px) / ${visibleCount})`;
 
-  const transform = `translateX(calc(50% - (${cardWidthCalc}) / 2 - ${currentIndex} * (${cardWidthCalc} + ${GAP_PX}px)))`;
+  const offsetPx = containerWidth > 0
+    ? (containerWidth / 2) - (cardWidthPx / 2) - (currentIndex * (cardWidthPx + GAP_PX))
+    : 0;
+  const transform = containerWidth > 0 ? `translateX(${offsetPx}px)` : "translateX(0)";
 
   const maskStyle = visibleCount === 1
     ? { maskImage: "none", WebkitMaskImage: "none" }
@@ -207,12 +225,13 @@ export function TestimonialsSlider(): ReactNode {
           </motion.h2>
 
           <div className="relative">
-            <div className="overflow-hidden" style={maskStyle}>
+            <div ref={containerRef} className="overflow-hidden" style={maskStyle}>
               <div
                 className="flex gap-6"
                 style={{
                   transform,
                   transition: enableTransition ? `transform ${TRANSITION_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1)` : "none",
+                  willChange: "transform",
                 }}
               >
                 {extendedTestimonials.map((testimonial, index) => {
