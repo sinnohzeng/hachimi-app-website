@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Finaro",
+  name: "React Bits Pro - Finance Template",
   description:
     "The modern financial platform that grows with you. From personal accounts to enterprise solutions, manage your money with confidence.",
   url: "https://finaro.com",
