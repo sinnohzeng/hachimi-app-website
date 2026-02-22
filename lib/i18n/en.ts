@@ -45,17 +45,17 @@ export const en: Translations = {
   },
 
   featureHighlight: {
-    title1: "Your cat room,",
-    title2: "your sanctuary",
+    title1: "Meet your companion,",
+    title2: "watch them grow",
     description:
-      "A cozy illustrated room that fills up as you build more habits. Day and night ambience shifts with the clock, and each cat claims their favorite spot based on personality.",
+      "Each cat has its own personality, mood, and growth stage. As you stay consistent with your habits, your companion levels up and evolves — a living reflection of your progress.",
     features: [
       "AI cat chat — talk to your cats in their unique personality",
       "Auto-generated daily diary blending mood and focus data",
       "100+ accessories across 5 price tiers in the shop",
     ],
     cta: "Explore features",
-    phonePlaceholder: "Cat Room Screenshot",
+    phonePlaceholder: "Cat companion detail page",
   },
 
   principles: {

@@ -1,36 +1,20 @@
 "use client";
 
 import { type ReactNode } from "react";
-import { ArrowRight, Cat, Timer, BarChart3 } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import type { Translations } from "@/lib/i18n";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const cardIcons = [
-  <Cat key="cat" className="w-8 h-8 text-accent" />,
-  <Timer key="timer" className="w-8 h-8 text-accent" />,
-  <BarChart3 key="chart" className="w-8 h-8 text-accent" />,
+const screenshots = [
+  "/screenshots/cat-house.webp",
+  "/screenshots/today-home.webp",
+  "/screenshots/stats-dashboard.webp",
 ];
 
-function ScreenshotPlaceholder({
-  label,
-  icon,
-}: {
-  label: string;
-  icon: ReactNode;
-}): ReactNode {
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-muted/50">
-      <div className="p-3 rounded-2xl bg-accent/10">{icon}</div>
-      <span className="text-xs text-muted-foreground">{label}</span>
-    </div>
-  );
-}
-
 export function FeatureCards({ t }: { t: Translations }): ReactNode {
-  const placeholderLabels = ["Cat Adoption", "Focus Timer", "Stats Dashboard"];
-
   return (
     <section
       id="features"
@@ -62,9 +46,12 @@ export function FeatureCards({ t }: { t: Translations }): ReactNode {
               className="group flex flex-col bg-muted/50 border border-border rounded-sm overflow-hidden hover:border-foreground/20 hover:shadow-lg transition-[border-color,box-shadow]"
             >
               <div className="relative h-56 sm:h-64 bg-background">
-                <ScreenshotPlaceholder
-                  label={placeholderLabels[index] ?? ""}
-                  icon={cardIcons[index] ?? null}
+                <Image
+                  src={screenshots[index]!}
+                  alt={card.title}
+                  width={640}
+                  height={1422}
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="flex flex-col p-6">

@@ -45,17 +45,17 @@ export const zh: Translations = {
   },
 
   featureHighlight: {
-    title1: "你的猫咪房间，",
-    title2: "你的小天地",
+    title1: "认识你的伙伴，",
+    title2: "陪伴它成长",
     description:
-      "一间温馨的图解房间，随着你养成更多习惯而逐渐被猫咪填满。白天夜晚氛围随时间变化，每只猫咪根据性格选择最爱的位置。",
+      "每只猫咪都有独特的性格、心情和成长阶段。坚持习惯，你的伙伴就会升级进化——它是你进步的生动映射。",
     features: [
       "AI 猫咪聊天 — 用猫咪独特的性格和你对话",
       "自动生成每日日记，融合心情和专注数据",
       "100+ 配饰，商店中 5 档定价",
     ],
     cta: "探索功能",
-    phonePlaceholder: "猫咪房间截图",
+    phonePlaceholder: "猫咪伙伴详情页",
   },
 
   principles: {

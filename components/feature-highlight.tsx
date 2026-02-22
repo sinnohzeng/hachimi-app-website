@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
+import Image from "next/image";
 import { ArrowRight, MessageSquare, BookOpen, ShoppingBag } from "lucide-react";
 import { motion } from "motion/react";
 import type { Translations } from "@/lib/i18n";
@@ -12,24 +13,6 @@ const featureIcons = [
   <BookOpen key="diary" className="w-4 h-4" />,
   <ShoppingBag key="shop" className="w-4 h-4" />,
 ];
-
-function PhonePlaceholder({ label }: { label: string }): ReactNode {
-  return (
-    <div className="relative bg-accent/5 rounded-md border border-accent/10 pt-10 px-16 overflow-hidden h-full flex flex-col">
-      <div className="relative w-full max-w-70 mx-auto flex-1 flex flex-col">
-        <div className="relative bg-neutral-900 rounded-t-4xl pt-1 px-1 flex-1 flex flex-col">
-          <div className="bg-background rounded-t-[1.75rem] pt-6 flex-1 flex items-center justify-center">
-            <div className="text-center px-5 pb-6">
-              <div className="text-6xl mb-4">🏠</div>
-              <p className="text-sm text-muted-foreground">{label}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-accent/5 to-transparent pointer-events-none" />
-    </div>
-  );
-}
 
 export function FeatureHighlight({ t }: { t: Translations }): ReactNode {
   return (
@@ -96,7 +79,22 @@ export function FeatureHighlight({ t }: { t: Translations }): ReactNode {
             transition={{ duration: 0.8, delay: 0.2, ease }}
             className="flex justify-center lg:justify-end h-full"
           >
-            <PhonePlaceholder label={t.featureHighlight.phonePlaceholder} />
+            <div className="relative bg-accent/5 rounded-md border border-accent/10 pt-10 px-16 overflow-hidden h-full flex flex-col">
+              <div className="relative w-full max-w-70 mx-auto flex-1 flex flex-col">
+                <div className="relative bg-neutral-900 rounded-t-4xl pt-1 px-1 flex-1 flex flex-col">
+                  <div className="bg-background rounded-t-[1.75rem] flex-1 overflow-hidden">
+                    <Image
+                      src="/screenshots/cat-detail-hero.webp"
+                      alt="Cat companion detail page"
+                      width={480}
+                      height={1067}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-accent/5 to-transparent pointer-events-none" />
+            </div>
           </motion.div>
         </div>
       </div>
