@@ -26,11 +26,8 @@ export function Footer({ t }: { t: Translations }): ReactNode {
             <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8">
               <div className="lg:max-w-xs">
                 <a href="#" className="flex items-center gap-2">
-                  <span className="text-2xl" aria-hidden="true">
-                    🐱
-                  </span>
                   <span className="text-lg font-semibold text-foreground tracking-tight">
-                    HACHIMI
+                    HACHIMI AI
                   </span>
                 </a>
                 <p className="mt-4 text-sm text-foreground/50 max-w-xs">

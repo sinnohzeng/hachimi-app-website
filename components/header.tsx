@@ -82,11 +82,8 @@ export function Header({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease }}
           >
-            <span className="text-2xl" aria-hidden="true">
-              🐱
-            </span>
             <span className="text-lg font-semibold text-white tracking-tight">
-              HACHIMI
+              HACHIMI AI
             </span>
           </motion.a>
 
@@ -136,11 +133,8 @@ export function Header({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease }}
           >
-            <span className="text-2xl" aria-hidden="true">
-              🐱
-            </span>
             <span className="text-lg font-semibold text-white tracking-tight">
-              HACHIMI
+              HACHIMI AI
             </span>
           </motion.a>
           <motion.button
@@ -174,11 +168,8 @@ export function Header({
                 aria-label="Home"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="text-2xl" aria-hidden="true">
-                  🐱
-                </span>
                 <span className="text-lg font-semibold text-foreground tracking-tight">
-                  HACHIMI
+                  HACHIMI AI
                 </span>
               </a>
               <button
