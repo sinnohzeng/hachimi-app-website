@@ -1,11 +1,11 @@
 {
-  "name": "Your Site Name",
-  "short_name": "Site",
-  "description": "A modern, accessible landing page template built with Next.js, Tailwind CSS, and TypeScript.",
+  "name": "Hachimi — Raise Cats, Build Habits",
+  "short_name": "Hachimi",
+  "description": "A cat-parenting habit app where every habit comes with a virtual kitten.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0066FF",
+  "theme_color": "#d97706",
   "icons": [
     {
       "src": "/icon-192.png",

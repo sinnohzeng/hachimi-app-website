@@ -80,8 +80,10 @@ export const baseMetadata: Metadata = {
     creator: siteConfig.creator,
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+    ],
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
