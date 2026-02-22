@@ -1,0 +1,114 @@
+# Hachimi
+
+> Hachimi (哈基米) is a gamified mobile habit-tracking app where every habit spawns a unique virtual kitten. Built with Flutter and Firebase. Users build habits through focus sessions while raising cats that evolve based on consistency. All AI runs on-device. Free, no ads, open source. Available on Android.
+
+Official website: hachimi.ai. Source code: github.com/sinnohzeng/hachimi-app.
+
+## About
+
+Every habit comes with a virtual kitten. Stay focused, earn XP and coins, and watch your cat evolve. All AI runs locally on your device. Hachimi turns discipline into care — when your habits keep a virtual kitten alive and growing, skipping a day feels different.
+
+## Core Features
+
+### Cat Parenting System — Every habit, a unique companion
+
+Adopt a kitten from 3 randomly generated candidates. 15 pelt patterns, 19 colors, 21 eye colors, and 6 distinct personalities. Each cat has its own personality, mood, and growth stage. As you stay consistent with your habits, your companion levels up and evolves — a living reflection of your progress.
+
+### Focus Timer — Stay focused, earn rewards
+
+Countdown and stopwatch modes with persistent Android foreground service. Earn XP and 10 coins per minute of focus. Smart pause and dual timer modes keep you in the zone.
+
+### Progress Tracking — Track your growth
+
+Weekly trend charts, 91-day activity heatmap, and paginated session history. See your progress at a glance.
+
+### On-Device AI
+
+AI cat chat and auto-generated diary powered by Qwen3-1.7B running locally via llama_cpp_dart. Your cats respond with personality-flavored messages — all inference happens on your device with zero cloud dependency.
+
+## Cat Companion Details
+
+- AI cat chat — talk to your cats in their unique personality
+- Auto-generated daily diary blending mood and focus data
+- 100+ accessories across 5 price tiers in the shop
+- XP-driven 4-stage evolution system
+
+## Design Principles
+
+### Attachment Motivation
+
+Hachimi turns discipline into care. When your habits keep a virtual kitten alive and growing, skipping a day feels different.
+
+### Privacy-First AI
+
+All your data is stored in Firebase with strict security rules. AI chat and diary features run entirely on-device using a local LLM — no data ever leaves your phone for AI processing.
+
+### Offline Capable
+
+Connectivity monitoring with graceful degradation and real-time sync. The app works fully offline and syncs when connection is restored.
+
+### Beautiful Design
+
+Material Design 3 with dynamic theming, smooth animations, and attention to detail across every screen.
+
+## Product Stats
+
+- 15+ cat breeds
+- 100+ accessories
+- 5 languages
+- 19 services
+
+## FAQ
+
+### Is my data safe?
+
+All your data is stored in Firebase with strict security rules. AI chat and diary features run entirely on-device using a local LLM — no data ever leaves your phone for AI processing.
+
+### Is Hachimi available on iOS?
+
+Currently Hachimi is Android-only. iOS support is planned for a future release. The codebase is built with Flutter, so cross-platform deployment is technically ready.
+
+### Is Hachimi open source?
+
+The source code is publicly available on GitHub for portfolio and reference purposes. However, it is not licensed for redistribution or commercial use. See the LICENSE file for full terms.
+
+### How does the AI chat work without internet?
+
+Hachimi bundles a Qwen3-1.7B language model that runs locally via llama_cpp_dart. Your cats respond with personality-flavored messages — all inference happens on your device with zero cloud dependency.
+
+### Does it cost anything?
+
+Hachimi is completely free. There are no in-app purchases, no ads, and no subscription fees. The in-app coin economy is earned through focus sessions and daily check-ins.
+
+## Technical Stack
+
+- Flutter + Dart (cross-platform mobile framework)
+- Riverpod 2.x (state management)
+- Material Design 3 (UI framework)
+- Firebase Auth (authentication)
+- Cloud Firestore (database)
+- Firebase Analytics / GA4 (analytics)
+- Firebase Crashlytics (crash reporting)
+- Firebase Remote Config (feature flags)
+- Firebase Cloud Messaging / FCM (push notifications)
+- Qwen3-1.7B via llama_cpp_dart (on-device AI)
+
+## Download
+
+- [Latest APK](https://github.com/sinnohzeng/hachimi-app/releases/latest): Download for Android
+
+## Links
+
+- [Official Website (English)](https://hachimi.ai/en): Product landing page
+- [Official Website (Chinese)](https://hachimi.ai/zh): 中文产品页
+- [GitHub Repository](https://github.com/sinnohzeng/hachimi-app): Source code
+- [Architecture Docs](https://github.com/sinnohzeng/hachimi-app/tree/main/docs): 20+ bilingual specs
+- [Changelog](https://github.com/sinnohzeng/hachimi-app/blob/main/CHANGELOG.md): Release history
+- [Developer Portfolio](https://zixuan.net): Zixuan Zeng, creator of Hachimi
+
+## Optional
+
+- [Data Model](https://github.com/sinnohzeng/hachimi-app/blob/main/docs/architecture/data-model.md): Firestore schema
+- [Cat System](https://github.com/sinnohzeng/hachimi-app/blob/main/docs/architecture/cat-system.md): Cat game mechanics and evolution rules
+- [State Management](https://github.com/sinnohzeng/hachimi-app/blob/main/docs/architecture/state-management.md): Riverpod provider graph
+- [License](https://github.com/sinnohzeng/hachimi-app/blob/main/LICENSE): Source available, not open for redistribution
