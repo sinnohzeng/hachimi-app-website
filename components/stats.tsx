@@ -2,21 +2,15 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useInView } from "motion/react";
+import type { Translations } from "@/lib/i18n";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-type Stat = {
-  value: number;
-  suffix: string;
-  prefix?: string;
-  label: string;
-};
-
-const stats: Stat[] = [
-  { value: 5, suffix: "B+", prefix: "$", label: "Processed annually" },
-  { value: 99.9, suffix: "%", label: "Uptime guarantee" },
-  { value: 150, suffix: "+", label: "Countries supported" },
-  { value: 2, suffix: "M+", label: "Active users" },
+const statsData = [
+  { value: 15, suffix: "+" },
+  { value: 100, suffix: "+" },
+  { value: 5, suffix: "" },
+  { value: 19, suffix: "" },
 ];
 
 function AnimatedCounter({
@@ -46,11 +40,14 @@ function AnimatedCounter({
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      // Ease out cubic
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const currentValue = easeOut * value;
 
-      setCount(isDecimal ? Math.round(currentValue * 10) / 10 : Math.floor(currentValue));
+      setCount(
+        isDecimal
+          ? Math.round(currentValue * 10) / 10
+          : Math.floor(currentValue)
+      );
 
       if (progress < 1) {
         requestAnimationFrame(animate);
@@ -74,14 +71,17 @@ function AnimatedCounter({
   );
 }
 
-export function Stats(): ReactNode {
+export function Stats({ t }: { t: Translations }): ReactNode {
   return (
-    <section className="relative w-full bg-muted pb-16 sm:pb-20 overflow-hidden">
+    <section
+      id="tech"
+      className="relative w-full bg-muted pb-16 sm:pb-20 overflow-hidden"
+    >
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {stats.map((stat, index) => (
+          {statsData.map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={t.stats.items[index]?.label ?? index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -92,11 +92,10 @@ export function Stats(): ReactNode {
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
-                  prefix={stat.prefix ?? ""}
                 />
               </div>
               <p className="text-sm sm:text-base text-foreground/70">
-                {stat.label}
+                {t.stats.items[index]?.label}
               </p>
             </motion.div>
           ))}

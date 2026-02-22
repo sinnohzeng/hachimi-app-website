@@ -1,44 +1,9 @@
 "use client";
 
 import { type ReactNode } from "react";
+import type { Translations } from "@/lib/i18n";
 
-const footerLinks = {
-  product: {
-    title: "Product",
-    links: [
-      { label: "Personal", href: "#personal" },
-      { label: "Business", href: "#business" },
-      { label: "Cards", href: "#cards" },
-      { label: "Transfers", href: "#transfers" },
-    ],
-  },
-  company: {
-    title: "Company",
-    links: [
-      { label: "About us", href: "#about" },
-      { label: "Careers", href: "#careers" },
-      { label: "Press", href: "#press" },
-      { label: "Security", href: "#security" },
-    ],
-  },
-  resources: {
-    title: "Resources",
-    links: [
-      { label: "Help Center", href: "#help" },
-      { label: "Developer API", href: "#api" },
-      { label: "Blog", href: "#blog" },
-      { label: "Community", href: "#community" },
-    ],
-  },
-};
-
-const legalLinks = [
-  { label: "Privacy Policy", href: "#privacy" },
-  { label: "Terms of Service", href: "#terms" },
-  { label: "Cookie Policy", href: "#cookies" },
-];
-
-export function Footer(): ReactNode {
+export function Footer({ t }: { t: Translations }): ReactNode {
   return (
     <footer className="relative w-full bg-background text-foreground overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center px-6 sm:px-8 pointer-events-none">
@@ -61,23 +26,28 @@ export function Footer(): ReactNode {
             <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8">
               <div className="lg:max-w-xs">
                 <a href="#" className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-full bg-foreground" />
-                  <span className="text-lg font-semibold text-foreground">
-                    finaro
+                  <span className="text-2xl" aria-hidden="true">
+                    🐱
+                  </span>
+                  <span className="text-lg font-semibold text-foreground tracking-tight">
+                    HACHIMI
                   </span>
                 </a>
                 <p className="mt-4 text-sm text-foreground/50 max-w-xs">
-                  © 2026 Finaro Inc. Modern banking for individuals and businesses.
+                  {t.footer.copyright}
+                </p>
+                <p className="mt-1 text-sm text-foreground/40">
+                  Source Available
                 </p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-16">
-                {Object.values(footerLinks).map((section) => (
+                {t.footer.links.map((section) => (
                   <div key={section.title}>
                     <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-5">
                       {section.title}
                     </h3>
                     <ul className="space-y-3">
-                      {section.links.map((link) => (
+                      {section.items.map((link) => (
                         <li key={link.label}>
                           <a
                             href={link.href}
@@ -100,14 +70,9 @@ export function Footer(): ReactNode {
         <div className="relative w-full max-w-270">
           <div className="pt-8 px-8 sm:px-12">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <a
-                href="#"
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors"
-              >
-                Contact us
-              </a>
+              <span className="text-sm text-foreground/40">v2.8.0</span>
               <div className="flex flex-wrap gap-6">
-                {legalLinks.map((link) => (
+                {t.footer.legal.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}

@@ -1,0 +1,88 @@
+export type Translations = {
+  // Header
+  nav: {
+    features: string;
+    tech: string;
+    download: string;
+  };
+  langSwitch: {
+    en: string;
+    zh: string;
+  };
+
+  // Hero
+  hero: {
+    badge: string;
+    headline1: string;
+    headline2: string;
+    description: string;
+    ctaDownload: string;
+    ctaSource: string;
+    securityBadge: string;
+  };
+
+  // Feature Cards
+  featureCards: {
+    title: string;
+    subtitle: string;
+    cards: {
+      title: string;
+      description: string;
+    }[];
+  };
+
+  // Feature Highlight
+  featureHighlight: {
+    title1: string;
+    title2: string;
+    description: string;
+    features: string[];
+    cta: string;
+    phonePlaceholder: string;
+  };
+
+  // Principles
+  principles: {
+    badge: string;
+    title1: string;
+    title2: string;
+    description: string;
+    cta: string;
+    cards: string[];
+  };
+
+  // Stats
+  stats: {
+    items: {
+      label: string;
+    }[];
+  };
+
+  // FAQ
+  faq: {
+    title: string;
+    subtitle: string;
+    items: {
+      question: string;
+      answer: string;
+    }[];
+    stillHaveQuestions: string;
+    contact: string;
+  };
+
+  // Final CTA
+  finalCta: {
+    headline: string;
+    cta: string;
+  };
+
+  // Footer
+  footer: {
+    copyright: string;
+    links: {
+      title: string;
+      items: { label: string; href: string }[];
+    }[];
+    legal: { label: string; href: string }[];
+  };
+};

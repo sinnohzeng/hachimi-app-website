@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "React Bits Pro - Finance Template",
+  name: "Hachimi — Raise Cats, Build Habits",
   description:
-    "The modern financial platform that grows with you. From personal accounts to enterprise solutions, manage your money with confidence.",
-  url: "https://finaro.com",
+    "A cat-parenting habit app where every habit comes with a virtual kitten. Focus, earn XP, and watch your cat evolve. All AI runs on-device.",
+  url: "https://hachimi.ai",
   ogImage: "/og-image.png",
-  creator: "@finaro",
+  creator: "@sinnohzeng",
   authors: [
     {
-      name: "Finaro",
-      url: "https://finaro.com",
+      name: "Zixuan Zeng",
+      url: "https://zixuan.net",
     },
   ],
   keywords: [
-    "banking",
-    "finance",
-    "fintech",
-    "payments",
-    "business banking",
-    "money transfer",
-    "financial platform",
-    "modern banking",
+    "habit tracker",
+    "cat game",
+    "focus timer",
+    "virtual pet",
+    "productivity app",
+    "flutter app",
+    "local AI",
+    "privacy first",
+    "gamification",
+    "android app",
   ],
 } as const;
 
@@ -49,6 +51,10 @@ export const baseMetadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/en",
+      zh: "/zh",
+    },
   },
   openGraph: {
     type: "website",

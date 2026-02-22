@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/metadata";
+
+export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -10,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/private/"],
       },
     ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
+    sitemap: "https://hachimi.ai/sitemap.xml",
+    host: "https://hachimi.ai",
   };
 }

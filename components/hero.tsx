@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { ChevronRight, Shield } from "lucide-react";
 import { motion } from "motion/react";
 import * as THREE from "three";
+import type { Translations } from "@/lib/i18n";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -23,7 +24,6 @@ const fragmentShader = `
 
   #define PI 3.141592654
 
-  // Simplex noise function
   vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
   vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
   vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
@@ -78,74 +78,58 @@ const fragmentShader = `
   void main() {
     vec2 uv = vUv;
     uv.x *= iResolution.x / iResolution.y;
-    
+
     float t = iTime * 0.15;
-    
-    // Mouse influence - smooth displacement field
+
     vec2 mouse = iMouse;
     mouse.x *= iResolution.x / iResolution.y;
-    
-    // Create a smooth radial displacement that pushes blobs away from cursor
+
     vec2 toMouse = uv - mouse;
     float dist = length(toMouse);
-    
-    // Soft gaussian-like falloff for smooth displacement
     float influence = exp(-dist * dist * 2.0) * 0.12;
-    
-    // Displace UV coordinates - pushes the noise field away from cursor
     vec2 displacement = toMouse * influence / (dist + 0.1);
     vec2 displacedUv = uv + displacement;
-    
-    // Dark base
+
     vec3 col = vec3(0.02, 0.02, 0.06);
-    
-    // Aurora beams from bottom - displaced by cursor
+
     float beam1 = snoise(vec3(displacedUv.x * 1.5 + t * 0.5, displacedUv.y * 0.8 - t * 0.2, t * 0.3));
     float beam2 = snoise(vec3(displacedUv.x * 2.0 - t * 0.3, displacedUv.y * 0.6 + t * 0.1, t * 0.2 + 10.0));
     float beam3 = snoise(vec3(displacedUv.x * 1.2 + t * 0.2, displacedUv.y * 1.0 - t * 0.15, t * 0.25 + 20.0));
-    
-    // Vertical gradient - stronger at bottom
+
     float verticalFade = pow(1.0 - uv.y, 1.5);
     float verticalFade2 = pow(1.0 - uv.y, 2.5);
-    
-    // Light beam shapes
+
     float light1 = smoothstep(0.0, 0.8, beam1 * verticalFade);
     float light2 = smoothstep(0.0, 0.7, beam2 * verticalFade);
     float light3 = smoothstep(0.0, 0.6, beam3 * verticalFade2);
-    
-    // Colors - warm to cool spectrum
+
     vec3 orange = vec3(0.95, 0.4, 0.1);
     vec3 red = vec3(0.85, 0.15, 0.2);
     vec3 pink = vec3(0.7, 0.2, 0.4);
     vec3 blue = vec3(0.1, 0.3, 0.7);
     vec3 cyan = vec3(0.1, 0.6, 0.8);
-    
-    // Position-based color mixing
+
     float xPos = uv.x / (iResolution.x / iResolution.y);
-    
-    // Layer the colors
+
     col += orange * light1 * 0.6 * smoothstep(0.6, 0.2, xPos);
     col += red * light1 * 0.5 * smoothstep(0.3, 0.5, xPos) * smoothstep(0.7, 0.5, xPos);
     col += pink * light2 * 0.4 * smoothstep(0.4, 0.6, xPos);
     col += blue * light3 * 0.5 * smoothstep(0.5, 0.8, xPos);
     col += cyan * light2 * 0.3 * smoothstep(0.7, 1.0, xPos);
-    
-    // Add subtle glow at bottom center
+
     float centerGlow = exp(-pow((xPos - 0.5) * 2.0, 2.0)) * verticalFade2;
     col += vec3(0.9, 0.5, 0.3) * centerGlow * 0.3;
-    
-    // Slight vignette
+
     float vignette = 1.0 - pow(length(uv - vec2(0.5 * iResolution.x / iResolution.y, 0.5)) * 0.8, 2.0);
     col *= max(vignette, 0.3);
-    
-    // Tone mapping
+
     col = pow(col, vec3(0.9));
-    
+
     gl_FragColor = vec4(col, 1.0);
   }
 `;
 
-export function Hero(): ReactNode {
+export function Hero({ t }: { t: Translations }): ReactNode {
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const frameIdRef = useRef<number>(0);
@@ -264,7 +248,9 @@ export function Hero(): ReactNode {
               transition={{ duration: 0.6, delay: 0.3, ease }}
               className="cursor-pointer flex items-center gap-2 pl-4 pr-3 py-1.5 bg-white rounded-full mb-6"
             >
-              <span className="text-xs font-medium text-black">New: Instant global transfers</span>
+              <span className="text-xs font-medium text-black">
+                {t.hero.badge}
+              </span>
               <ChevronRight className="w-3 h-3 text-black/50" />
             </motion.div>
 
@@ -274,7 +260,9 @@ export function Hero(): ReactNode {
               transition={{ duration: 0.8, delay: 0.5, ease }}
               className="text-4xl sm:text-5xl md:text-6xl font-medium font-serif text-white text-left lg:text-center leading-tighter tracking-tight max-w-3xl"
             >
-              Spend, save, & invest with<br/> one powerful app
+              {t.hero.headline1}
+              <br />
+              {t.hero.headline2}
             </motion.h1>
 
             <motion.p
@@ -283,26 +271,27 @@ export function Hero(): ReactNode {
               transition={{ duration: 0.6, delay: 0.7, ease }}
               className="mt-5 text-lg text-white/70 text-left lg:text-center max-w-xl"
             >
-              Join 45 million people managing their money better with instant transfers, smart budgeting, and zero foreign exchange fees.
+              {t.hero.description}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9, ease }}
-              className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 mt-10 w-full lg:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-10 w-full sm:w-auto"
             >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 w-full lg:w-72 px-5 text-sm bg-transparent border border-white/20 rounded-full text-white placeholder:text-white/50 focus:outline-none focus:border-white/40"
-              />
-              <button
-                type="button"
-                className="cursor-pointer h-12 px-6 text-sm font-medium bg-white text-black rounded-full hover:bg-white/90 active:scale-[0.97] transition-all duration-150 flex items-center justify-center gap-2 whitespace-nowrap"
+              <a
+                href="https://github.com/sinnohzeng/hachimi-app/releases/latest"
+                className="h-12 px-6 text-sm font-medium bg-white text-black rounded-full hover:bg-white/90 active:scale-[0.97] transition-all duration-150 flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                Get Started
-              </button>
+                {t.hero.ctaDownload}
+              </a>
+              <a
+                href="https://github.com/sinnohzeng/hachimi-app"
+                className="h-12 px-6 text-sm font-medium text-white border border-white/30 rounded-full hover:bg-white/10 active:scale-[0.97] transition-all duration-150 flex items-center justify-center gap-2 whitespace-nowrap"
+              >
+                {t.hero.ctaSource}
+              </a>
             </motion.div>
 
             <motion.p
@@ -312,7 +301,7 @@ export function Hero(): ReactNode {
               className="flex items-center gap-2 mt-6 text-sm text-white/60"
             >
               <Shield className="w-4 h-4" />
-              Industry-leading security. No hidden fees.
+              {t.hero.securityBadge}
             </motion.p>
           </div>
         </motion.div>

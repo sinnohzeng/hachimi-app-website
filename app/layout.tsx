@@ -1,11 +1,7 @@
-import { Header } from "@/components/header";
-import { Providers } from "@/components/providers";
-import { SkipToContent } from "@/components/skip-to-content";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { baseMetadata } from "@/lib/metadata";
-import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -42,12 +38,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
       >
-        <Providers>
-          <SkipToContent />
-          <Header />
-          <ThemeSwitch />
-          {children}
-        </Providers>
+        {children}
       </body>
     </html>
   );
