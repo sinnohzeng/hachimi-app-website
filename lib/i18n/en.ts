@@ -12,14 +12,14 @@ export const en: Translations = {
   },
 
   hero: {
-    badge: "v2.8.0 — Stats redesign + dark mode fixes",
+    badge: "v2.16.0 — Material Design 3 overhaul",
     headline1: "Raise cats.",
     headline2: "Build habits.",
     description:
-      "Every habit comes with a virtual kitten. Stay focused, earn XP and coins, and watch your cat evolve. All AI runs locally on your device.",
+      "Every habit comes with a virtual kitten. Stay focused, earn XP and coins, and watch your cat evolve. Optional AI companion powered by cloud providers.",
     ctaDownload: "Download APK",
     ctaSource: "View Source",
-    securityBadge: "Privacy-first. All AI runs on-device.",
+    securityBadge: "Privacy-first. AI features are optional and opt-in.",
   },
 
   featureCards: {
@@ -67,7 +67,7 @@ export const en: Translations = {
     cta: "Download for Android",
     cards: [
       "Attachment Motivation",
-      "Privacy-First AI",
+      "Privacy-First Design",
       "Offline Capable",
       "Beautiful Design",
     ],
@@ -78,7 +78,7 @@ export const en: Translations = {
       { label: "Cat breeds" },
       { label: "Accessories" },
       { label: "Languages" },
-      { label: "Services" },
+      { label: "Achievements" },
     ],
   },
 
@@ -89,12 +89,12 @@ export const en: Translations = {
       {
         question: "Is my data safe?",
         answer:
-          "All your data is stored in Firebase with strict security rules. AI chat and diary features run entirely on-device using a local LLM — no data ever leaves your phone for AI processing.",
+          "All your data is stored in Firebase with strict security rules. AI features are optional and opt-in — when enabled, chat messages are sent to cloud AI providers (MiniMax or Google Gemini) for processing. A privacy disclosure is shown before first use. You can delete your account and all associated data at any time.",
       },
       {
         question: "Is Hachimi available on iOS?",
         answer:
-          "Currently Hachimi is Android-only. iOS support is planned for a future release. The codebase is built with Flutter, so cross-platform deployment is technically ready.",
+          "Currently Hachimi is Android-only, available as a direct APK download from GitHub. iOS support is planned for a future release. The codebase is built with Flutter, so cross-platform deployment is technically ready.",
       },
       {
         question: "Is Hachimi open source?",
@@ -102,9 +102,9 @@ export const en: Translations = {
           "The source code is publicly available on GitHub for portfolio and reference purposes. However, it is not licensed for redistribution or commercial use. See the LICENSE file for full terms.",
       },
       {
-        question: "How does the AI chat work without internet?",
+        question: "How does the AI chat work?",
         answer:
-          "Hachimi bundles a Qwen3-1.7B language model that runs locally via llama_cpp_dart. Your cats respond with personality-flavored messages — all inference happens on your device with zero cloud dependency.",
+          "Hachimi connects to cloud AI providers — you can choose between MiniMax and Google Gemini in Settings. Your cats respond with personality-flavored messages generated in real-time. AI features are entirely optional and disabled by default.",
       },
       {
         question: "Does it cost anything?",
@@ -149,7 +149,60 @@ export const en: Translations = {
       },
     ],
     legal: [
+      { label: "Privacy Policy", href: "/en/privacy" },
       { label: "License", href: "https://github.com/sinnohzeng/hachimi-app/blob/main/LICENSE" },
+    ],
+  },
+
+  privacy: {
+    title: "Privacy Policy",
+    effectiveDate: "Effective date: February 23, 2026",
+    sections: [
+      {
+        heading: "Introduction",
+        content:
+          "Hachimi (\u201Cwe\u201D, \u201Cour\u201D, or \u201Cthe app\u201D) is a habit-tracking app with virtual cat companions, built by Zixuan Zeng. This Privacy Policy explains how we collect, use, and protect your information when you use Hachimi. By using the app, you agree to the practices described in this policy.",
+      },
+      {
+        heading: "Information we collect",
+        content:
+          "Account information: When you create an account, we collect your email address and display name via Firebase Authentication.\n\nHabit and focus data: Your habits, focus sessions, quest progress, cat companions, coins, and inventory are stored in Cloud Firestore to power the core app experience.\n\nAI chat content (optional): If you enable AI features, your chat messages with cat companions and diary generation requests are sent to cloud AI providers (MiniMax or Google Gemini, depending on your choice) for processing. AI features are disabled by default and require explicit opt-in with a privacy disclosure.\n\nDevice and usage data: We automatically collect crash reports (Firebase Crashlytics), app usage events (Firebase Analytics), performance data (Firebase Performance), and push notification tokens (Firebase Cloud Messaging) to improve the app experience.",
+      },
+      {
+        heading: "How we use your information",
+        content:
+          "We use the information we collect to:\n\n\u2022 Provide and maintain the core habit-tracking and cat-raising experience\n\u2022 Generate AI-powered cat chat responses and diary entries (when enabled)\n\u2022 Send push notifications for habit reminders (when enabled)\n\u2022 Analyze app usage patterns and fix crashes\n\u2022 Monitor app performance and improve reliability",
+      },
+      {
+        heading: "Third-party services",
+        content:
+          "We share data with the following third-party services:\n\nGoogle Firebase: Authentication, Cloud Firestore (data storage), Analytics, Crashlytics (crash reports), Performance Monitoring, Cloud Messaging (push notifications), and Remote Config. Google\u2019s privacy policy applies to data processed by Firebase services.\n\nMiniMax (optional): If you select MiniMax as your AI provider, chat messages are sent to MiniMax\u2019s API for generating responses. MiniMax\u2019s privacy policy applies to this data.\n\nGoogle Gemini (optional): If you select Gemini as your AI provider, chat messages are sent to Google\u2019s Gemini API for generating responses. Google\u2019s AI privacy terms apply.\n\nWe do not sell your personal data. We do not use third-party advertising services.",
+      },
+      {
+        heading: "Data security",
+        content:
+          "All data is encrypted in transit using TLS/HTTPS. Cloud Firestore encrypts data at rest. Firebase security rules restrict data access to authenticated users for their own documents. API keys for AI providers are injected at build time and never stored on-device in plain text.",
+      },
+      {
+        heading: "Your rights",
+        content:
+          "Access and export: You can view all your data within the app (habits, sessions, cats, coins, chat history).\n\nDeletion: You can delete your account and all associated data through the app\u2019s account deletion flow (Settings \u2192 Account \u2192 Delete Account). This permanently removes your authentication record and all Firestore data.\n\nOpt-out: AI features can be disabled at any time in Settings. Push notifications can be managed through your device\u2019s system settings.",
+      },
+      {
+        heading: "Children\u2019s privacy",
+        content:
+          "Hachimi is not designed for or directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us so we can take appropriate action.",
+      },
+      {
+        heading: "Changes to this policy",
+        content:
+          "We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date. We encourage you to review this policy periodically.",
+      },
+      {
+        heading: "Contact",
+        content:
+          "If you have questions about this Privacy Policy or your data, please contact us at:\n\nWebsite: https://hachimi.ai\nGitHub: https://github.com/sinnohzeng/hachimi-app",
+      },
     ],
   },
 };

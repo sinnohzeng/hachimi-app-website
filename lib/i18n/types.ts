@@ -85,4 +85,14 @@ export type Translations = {
     }[];
     legal: { label: string; href: string }[];
   };
+
+  // Privacy Policy
+  privacy: {
+    title: string;
+    effectiveDate: string;
+    sections: {
+      heading: string;
+      content: string;
+    }[];
+  };
 };

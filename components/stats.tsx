@@ -10,7 +10,7 @@ const statsData = [
   { value: 15, suffix: "+" },
   { value: 100, suffix: "+" },
   { value: 5, suffix: "" },
-  { value: 19, suffix: "" },
+  { value: 163, suffix: "" },
 ];
 
 function AnimatedCounter({

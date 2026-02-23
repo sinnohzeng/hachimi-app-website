@@ -1,34 +1,36 @@
 # Hachimi
 
-> Hachimi (哈基米) is a gamified mobile habit-tracking app where every habit spawns a unique virtual kitten. Built with Flutter and Firebase. Users build habits through focus sessions while raising cats that evolve based on consistency. All AI runs on-device. Free, no ads, open source. Available on Android.
+> Hachimi (哈基米) is a gamified mobile habit-tracking app where every habit spawns a unique virtual kitten. Built with Flutter and Firebase. Users build habits through focus sessions while raising cats that evolve based on cumulative hours. Optional cloud AI companion (MiniMax M2.5 or Gemini 3 Flash). Free, no ads, source available. Available on Android and Google Play.
 
 Official website: hachimi.ai. Source code: github.com/sinnohzeng/hachimi-app.
 
 ## Core Features
 
-- [Cat Parenting System](https://hachimi.ai/en#features): Adopt a kitten from 3 randomly generated candidates. 15 pelt patterns, 19 colors, 21 eye colors, 6 personalities. XP-driven 4-stage evolution
+- [Cat Parenting System](https://hachimi.ai/en#features): Adopt a kitten from 3 randomly generated candidates. 15 pelt patterns, 19 colors, 21 eye colors, 6 personalities. XP-driven 4-stage evolution (0/20/100/200 cumulative hours)
 - [Focus Timer](https://hachimi.ai/en#features): Countdown and stopwatch modes with persistent Android foreground service. Earn XP and 10 coins per minute of focus
 - [Progress Tracking](https://hachimi.ai/en#features): Weekly trend charts, 91-day activity heatmap, and paginated session history
-- [On-Device AI](https://hachimi.ai/en#faq): AI cat chat and auto-generated diary powered by Qwen3-1.7B running locally via llama_cpp_dart. Zero cloud dependency
+- [AI Companion](https://hachimi.ai/en#faq): Optional cloud AI cat chat and auto-generated diary. Choose between MiniMax M2.5 or Google Gemini 3 Flash. Privacy disclosure required on first enable
 
 ## Technical Details
 
-- [GitHub Repository](https://github.com/sinnohzeng/hachimi-app): Flutter + Dart, Riverpod state management, Material Design 3
+- [GitHub Repository](https://github.com/sinnohzeng/hachimi-app): Flutter + Dart, Riverpod 3.x state management, Material Design 3
 - [Architecture Docs](https://github.com/sinnohzeng/hachimi-app/tree/main/docs): 20+ bilingual (EN/CN) specs following Document-Driven Development
 - [Changelog](https://github.com/sinnohzeng/hachimi-app/blob/main/CHANGELOG.md): Release history
 
 ## Design Principles
 
-- [Why Hachimi](https://hachimi.ai/en#why): Attachment motivation, privacy-first AI, offline capable, beautiful design
+- [Why Hachimi](https://hachimi.ai/en#why): Attachment motivation, privacy-first design, offline capable, beautiful design
 
 ## Download
 
-- [Latest APK](https://github.com/sinnohzeng/hachimi-app/releases/latest): Download for Android
+- [Google Play](https://play.google.com/store/apps/details?id=com.hachimi.hachimi_app): Install from Google Play Store
+- [Latest APK](https://github.com/sinnohzeng/hachimi-app/releases/latest): Direct download for Android
 
 ## Links
 
 - [Official Website (English)](https://hachimi.ai/en): Product landing page
 - [Official Website (Chinese)](https://hachimi.ai/zh): 中文产品页
+- [Privacy Policy](https://hachimi.ai/en/privacy): How we handle your data
 - [Developer Portfolio](https://zixuan.net): Zixuan Zeng, creator of Hachimi
 
 ## Optional

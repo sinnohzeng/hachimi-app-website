@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Hachimi — Raise Cats, Build Habits",
   description:
-    "A cat-parenting habit app where every habit comes with a virtual kitten. Focus, earn XP, and watch your cat evolve. All AI runs on-device.",
+    "A cat-parenting habit app where every habit comes with a virtual kitten. Focus, earn XP, and watch your cat evolve. Free, no ads.",
   url: "https://hachimi.ai",
   ogImage: "/og-image.png",
   creator: "@sinnohzeng",
@@ -20,7 +20,7 @@ export const siteConfig = {
     "virtual pet",
     "productivity app",
     "flutter app",
-    "local AI",
+    "AI companion",
     "privacy first",
     "gamification",
     "android app",
