@@ -150,6 +150,8 @@ export const en: Translations = {
     ],
     legal: [
       { label: "Privacy Policy", href: "/en/privacy" },
+      { label: "Delete Account", href: "/en/account-deletion" },
+      { label: "Delete Data", href: "/en/data-deletion" },
       { label: "License", href: "https://github.com/sinnohzeng/hachimi-app/blob/main/LICENSE" },
     ],
   },
@@ -202,6 +204,110 @@ export const en: Translations = {
         heading: "Contact",
         content:
           "If you have questions about this Privacy Policy or your data, please contact us at:\n\nWebsite: https://hachimi.ai\nGitHub: https://github.com/sinnohzeng/hachimi-app",
+      },
+    ],
+  },
+
+  accountDeletion: {
+    title: "Delete your account",
+    effectiveDate: "Effective date: February 23, 2026",
+    intro:
+      "Hachimi, developed by Zixuan Zeng, allows you to permanently delete your account and all associated data directly within the app. This page explains the steps to request account deletion and what data is affected.",
+    steps: {
+      heading: "How to delete your account",
+      items: [
+        "Open Hachimi and tap the profile icon, then tap Settings.",
+        "Tap Account, then tap Delete Account.",
+        "Review the data summary showing your quests, cats, and total focus hours.",
+        'Type "DELETE" to confirm, then re-authenticate with your Google account.',
+      ],
+    },
+    dataTable: {
+      heading: "Data deleted and retained",
+      columns: ["Data type", "Deleted?", "Retention period"],
+      rows: [
+        { cells: ["Account (email, display name)", "Yes", "Deleted immediately"] },
+        { cells: ["Quests and focus sessions", "Yes", "Deleted immediately"] },
+        { cells: ["Cat companions and inventory", "Yes", "Deleted immediately"] },
+        { cells: ["Achievements", "Yes", "Deleted immediately"] },
+        { cells: ["Check-in history", "Yes", "Deleted immediately"] },
+        { cells: ["User profile (coins, settings)", "Yes", "Deleted immediately"] },
+        { cells: ["AI chat messages and diary (local)", "Yes", "Deleted immediately"] },
+        { cells: ["App preferences (local)", "Yes", "Deleted immediately"] },
+        { cells: ["Crash reports (Firebase Crashlytics)", "No", "Up to 90 days (managed by Google)"] },
+        { cells: ["Analytics events (Firebase Analytics)", "No", "Per Google\u2019s data retention policy"] },
+      ],
+    },
+    sections: [
+      {
+        heading: "What happens after deletion",
+        content:
+          "Account deletion is permanent and irreversible. Once confirmed, the following actions occur automatically:\n\n\u2022 Your Firebase Authentication record is deleted\n\u2022 All your data in Cloud Firestore is permanently removed, including quests, focus sessions, cat companions, achievements, check-in history, coins, and inventory\n\u2022 Local data on your device is cleared, including AI chat history, diary entries, app preferences, and scheduled notifications\n\u2022 You will be signed out and returned to the login screen\n\nYou will not be able to recover your account or any associated data after deletion.",
+      },
+      {
+        heading: "Third-party data retention",
+        content:
+          "Some anonymized or aggregated data collected by Google Firebase services (Crashlytics, Analytics, Performance Monitoring) may be retained by Google according to their own data retention policies. This data is managed by Google and cannot be deleted by Hachimi directly. For more information, refer to Google\u2019s privacy policy.",
+      },
+      {
+        heading: "Alternative options",
+        content:
+          "Before deleting your account, you may consider these alternatives:\n\n\u2022 Disable AI features: Go to Settings and turn off AI chat to stop sending data to cloud AI providers\n\u2022 Manage notifications: Disable push notifications through your device\u2019s system settings\n\nThese options let you continue using Hachimi with reduced data sharing.",
+      },
+      {
+        heading: "Contact",
+        content:
+          "If you have questions about account deletion or need assistance, please contact us at:\n\nWebsite: https://hachimi.ai\nGitHub: https://github.com/sinnohzeng/hachimi-app",
+      },
+    ],
+  },
+
+  dataDeletion: {
+    title: "Delete your data",
+    effectiveDate: "Effective date: February 23, 2026",
+    intro:
+      "Hachimi, developed by Zixuan Zeng, allows you to delete all your personal data by deleting your account. When you delete your account, all associated data is permanently removed. Hachimi does not currently support selective data deletion \u2014 deleting your account removes everything.",
+    steps: {
+      heading: "How to delete your data",
+      items: [
+        "Open Hachimi and tap the profile icon, then tap Settings.",
+        "Tap Account, then tap Delete Account.",
+        "Review the data summary showing your quests, cats, and total focus hours.",
+        'Type "DELETE" to confirm, then re-authenticate with your Google account.',
+      ],
+    },
+    dataTable: {
+      heading: "Types of data deleted and retained",
+      columns: ["Data type", "What it includes", "Deleted?"],
+      rows: [
+        { cells: ["Account information", "Email address and display name from Google sign-in", "Yes, immediately"] },
+        { cells: ["Quests", "Quest names, goals, target hours, deadlines, reminders, and notes", "Yes, immediately"] },
+        { cells: ["Focus sessions", "Start/end times, duration, XP and coins earned, timer mode", "Yes, immediately"] },
+        { cells: ["Cat companions", "Names, appearance, personality, growth stage, equipped accessories", "Yes, immediately"] },
+        { cells: ["Achievements", "Unlocked achievements and unlock timestamps", "Yes, immediately"] },
+        { cells: ["Check-in history", "Monthly check-in records and milestone data", "Yes, immediately"] },
+        { cells: ["User profile", "Coin balance, inventory items, avatar, push notification token", "Yes, immediately"] },
+        { cells: ["AI chat and diary", "Chat conversations with cats and auto-generated diary entries (stored locally)", "Yes, immediately"] },
+        { cells: ["App preferences", "Settings, AI toggle state, selected AI provider (stored locally)", "Yes, immediately"] },
+        { cells: ["Crash reports", "Stack traces and device info collected by Firebase Crashlytics", "No, up to 90 days"] },
+        { cells: ["Analytics events", "Usage patterns and screen views collected by Firebase Analytics", "No, per Google policy"] },
+      ],
+    },
+    sections: [
+      {
+        heading: "Cloud data vs. local data",
+        content:
+          "Your data is stored in two locations:\n\n\u2022 Cloud (Firebase): Account information, quests, focus sessions, cats, achievements, check-in history, and user profile are stored in Google Cloud Firestore. These are permanently deleted from the server when you delete your account.\n\n\u2022 Local (device): AI chat messages, diary entries, app preferences, and scheduled notifications are stored on your device. These are cleared during the deletion process.\n\nBoth cloud and local data are removed as part of the account deletion flow.",
+      },
+      {
+        heading: "Third-party data retention",
+        content:
+          "Crash reports (Firebase Crashlytics), analytics events (Firebase Analytics), and performance data (Firebase Performance Monitoring) are collected and managed by Google. This data may be retained by Google for up to 90 days or according to Google\u2019s own data retention policies. Hachimi cannot delete this data directly. For more information, refer to Google\u2019s privacy policy.",
+      },
+      {
+        heading: "Contact",
+        content:
+          "If you have questions about data deletion or need assistance, please contact us at:\n\nWebsite: https://hachimi.ai\nGitHub: https://github.com/sinnohzeng/hachimi-app",
       },
     ],
   },

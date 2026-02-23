@@ -150,6 +150,8 @@ export const zh: Translations = {
     ],
     legal: [
       { label: "隐私政策", href: "/zh/privacy" },
+      { label: "删除账号", href: "/zh/account-deletion" },
+      { label: "删除数据", href: "/zh/data-deletion" },
       { label: "许可证", href: "https://github.com/sinnohzeng/hachimi-app/blob/main/LICENSE" },
     ],
   },
@@ -202,6 +204,110 @@ export const zh: Translations = {
         heading: "联系方式",
         content:
           "如果你对本隐私政策或你的数据有任何疑问，请通过以下方式联系我们：\n\n网站：https://hachimi.ai\nGitHub：https://github.com/sinnohzeng/hachimi-app",
+      },
+    ],
+  },
+
+  accountDeletion: {
+    title: "删除你的账号",
+    effectiveDate: "生效日期：2026 年 2 月 23 日",
+    intro:
+      "Hachimi 由 Zixuan Zeng 开发，允许你在应用内永久删除账号和所有关联数据。本页面说明如何请求删除账号以及哪些数据会受到影响。",
+    steps: {
+      heading: "如何删除账号",
+      items: [
+        "打开 Hachimi，点击个人头像，然后点击设置。",
+        "点击账号，然后点击删除账号。",
+        "查看数据摘要，确认你的任务数量、猫咪数量和累计专注时长。",
+        "输入「DELETE」确认，然后使用 Google 账号重新验证身份。",
+      ],
+    },
+    dataTable: {
+      heading: "删除和保留的数据",
+      columns: ["数据类型", "是否删除", "保留期限"],
+      rows: [
+        { cells: ["账号（邮箱、显示名称）", "是", "立即删除"] },
+        { cells: ["任务和专注记录", "是", "立即删除"] },
+        { cells: ["猫咪伙伴和道具", "是", "立即删除"] },
+        { cells: ["成就", "是", "立即删除"] },
+        { cells: ["签到历史", "是", "立即删除"] },
+        { cells: ["用户资料（金币、设置）", "是", "立即删除"] },
+        { cells: ["AI 聊天消息和日记（本地）", "是", "立即删除"] },
+        { cells: ["应用偏好设置（本地）", "是", "立即删除"] },
+        { cells: ["崩溃报告（Firebase Crashlytics）", "否", "最长 90 天（由 Google 管理）"] },
+        { cells: ["分析事件（Firebase Analytics）", "否", "按 Google 数据保留政策"] },
+      ],
+    },
+    sections: [
+      {
+        heading: "删除后会发生什么",
+        content:
+          "账号删除是永久且不可逆的。确认后，以下操作将自动执行：\n\n\u2022 你的 Firebase 身份验证记录将被删除\n\u2022 你在 Cloud Firestore 中的所有数据将被永久移除，包括任务、专注记录、猫咪伙伴、成就、签到历史、金币和道具\n\u2022 设备上的本地数据将被清除，包括 AI 聊天历史、日记内容、应用偏好设置和计划中的通知\n\u2022 你将被登出并返回登录页面\n\n删除后，你将无法恢复账号或任何关联数据。",
+      },
+      {
+        heading: "第三方数据保留",
+        content:
+          "Google Firebase 服务（Crashlytics、Analytics、Performance Monitoring）收集的部分匿名化或聚合数据可能由 Google 按其数据保留政策保留。这些数据由 Google 管理，Hachimi 无法直接删除。更多信息请参阅 Google 隐私政策。",
+      },
+      {
+        heading: "其他选项",
+        content:
+          "在删除账号之前，你可以考虑以下替代方案：\n\n\u2022 停用 AI 功能：前往设置关闭 AI 聊天，停止向云端 AI 供应商发送数据\n\u2022 管理通知：通过设备系统设置关闭推送通知\n\n这些选项让你可以在减少数据共享的情况下继续使用 Hachimi。",
+      },
+      {
+        heading: "联系方式",
+        content:
+          "如果你对账号删除有任何疑问或需要帮助，请通过以下方式联系我们：\n\n网站：https://hachimi.ai\nGitHub：https://github.com/sinnohzeng/hachimi-app",
+      },
+    ],
+  },
+
+  dataDeletion: {
+    title: "删除你的数据",
+    effectiveDate: "生效日期：2026 年 2 月 23 日",
+    intro:
+      "Hachimi 由 Zixuan Zeng 开发，允许你通过删除账号来删除所有个人数据。删除账号时，所有关联数据将被永久移除。Hachimi 目前不支持选择性数据删除——删除账号将移除所有数据。",
+    steps: {
+      heading: "如何删除数据",
+      items: [
+        "打开 Hachimi，点击个人头像，然后点击设置。",
+        "点击账号，然后点击删除账号。",
+        "查看数据摘要，确认你的任务数量、猫咪数量和累计专注时长。",
+        "输入「DELETE」确认，然后使用 Google 账号重新验证身份。",
+      ],
+    },
+    dataTable: {
+      heading: "删除和保留的数据类型",
+      columns: ["数据类型", "包含内容", "是否删除"],
+      rows: [
+        { cells: ["账号信息", "Google 登录的邮箱地址和显示名称", "是，立即删除"] },
+        { cells: ["任务", "任务名称、目标、目标时长、截止日期、提醒和备忘", "是，立即删除"] },
+        { cells: ["专注记录", "开始/结束时间、时长、获得的 XP 和金币、计时模式", "是，立即删除"] },
+        { cells: ["猫咪伙伴", "名称、外观、性格、成长阶段、装备的配饰", "是，立即删除"] },
+        { cells: ["成就", "已解锁的成就和解锁时间", "是，立即删除"] },
+        { cells: ["签到历史", "每月签到记录和里程碑数据", "是，立即删除"] },
+        { cells: ["用户资料", "金币余额、道具库存、头像、推送通知令牌", "是，立即删除"] },
+        { cells: ["AI 聊天和日记", "与猫咪的聊天记录和自动生成的日记内容（存储在本地）", "是，立即删除"] },
+        { cells: ["应用偏好设置", "设置项、AI 开关状态、已选择的 AI 供应商（存储在本地）", "是，立即删除"] },
+        { cells: ["崩溃报告", "Firebase Crashlytics 收集的堆栈追踪和设备信息", "否，最长 90 天"] },
+        { cells: ["分析事件", "Firebase Analytics 收集的使用模式和页面浏览", "否，按 Google 政策"] },
+      ],
+    },
+    sections: [
+      {
+        heading: "云端数据与本地数据",
+        content:
+          "你的数据存储在两个位置：\n\n\u2022 云端（Firebase）：账号信息、任务、专注记录、猫咪、成就、签到历史和用户资料存储在 Google Cloud Firestore 中。删除账号时，这些数据将从服务器上永久删除。\n\n\u2022 本地（设备）：AI 聊天消息、日记内容、应用偏好设置和计划中的通知存储在你的设备上。这些数据将在删除流程中被清除。\n\n云端和本地数据都会在账号删除流程中被移除。",
+      },
+      {
+        heading: "第三方数据保留",
+        content:
+          "崩溃报告（Firebase Crashlytics）、分析事件（Firebase Analytics）和性能数据（Firebase Performance Monitoring）由 Google 收集和管理。这些数据可能由 Google 保留最长 90 天或按 Google 的数据保留政策保留。Hachimi 无法直接删除这些数据。更多信息请参阅 Google 隐私政策。",
+      },
+      {
+        heading: "联系方式",
+        content:
+          "如果你对数据删除有任何疑问或需要帮助，请通过以下方式联系我们：\n\n网站：https://hachimi.ai\nGitHub：https://github.com/sinnohzeng/hachimi-app",
       },
     ],
   },

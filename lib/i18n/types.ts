@@ -95,4 +95,27 @@ export type Translations = {
       content: string;
     }[];
   };
+
+  // Legal pages (Account Deletion / Data Deletion)
+  accountDeletion: LegalPage;
+  dataDeletion: LegalPage;
+};
+
+export type LegalPage = {
+  title: string;
+  effectiveDate: string;
+  intro: string;
+  steps: {
+    heading: string;
+    items: string[];
+  };
+  dataTable: {
+    heading: string;
+    columns: string[];
+    rows: { cells: string[] }[];
+  };
+  sections: {
+    heading: string;
+    content: string;
+  }[];
 };
