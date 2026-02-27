@@ -12,7 +12,7 @@ export const zh: Translations = {
   },
 
   hero: {
-    badge: "v2.16.0 — Material Design 3 全面升级",
+    badge: "v2.21.0 — 安全加固，离线可靠",
     headline1: "养猫。",
     headline2: "养习惯。",
     description:

@@ -12,7 +12,7 @@ export const en: Translations = {
   },
 
   hero: {
-    badge: "v2.16.0 — Material Design 3 overhaul",
+    badge: "v2.21.0 — Security hardened, offline reliability",
     headline1: "Raise cats.",
     headline2: "Build habits.",
     description:
