@@ -12,7 +12,7 @@ export const zh: Translations = {
   },
 
   hero: {
-    badge: "v2.21.0 — 安全加固，离线可靠",
+    badge: "v2.24.0 — 已上架 Google Play",
     headline1: "养猫。",
     headline2: "养习惯。",
     description:

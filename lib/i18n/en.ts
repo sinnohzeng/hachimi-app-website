@@ -12,7 +12,7 @@ export const en: Translations = {
   },
 
   hero: {
-    badge: "v2.21.0 — Security hardened, offline reliability",
+    badge: "v2.24.0 — Now on Google Play",
     headline1: "Raise cats.",
     headline2: "Build habits.",
     description:
